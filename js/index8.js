@@ -52,3 +52,26 @@ const reverseSeq = n => {
   return arr;
 };
 reverseSeq(5)
+//#6
+// Write function bmi that calculates body mass index (bmi = weight / height2).
+// if bmi <= 18.5 return "Underweight"
+// if bmi <= 25.0 return "Normal"
+// if bmi <= 30.0 return "Overweight"
+// if bmi > 30 return "Obese"
+function bmi(weight, height) {
+  let bmi=0;
+  bmi=weight/(height*height)
+  if(bmi<=18.5){
+    return 'Underweight'
+  }
+   if(bmi<=25 && bmi>18.5){
+    return "Normal"
+  }
+   if(bmi<=30 && bmi>25){
+    return "Overweight"
+  }
+   if(bmi>30){
+    return "Obese"
+  }  
+}
+
