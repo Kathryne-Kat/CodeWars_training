@@ -26,9 +26,38 @@ function getMiddle(s)
 
 getMiddle("test")
 getMiddle("testing")
-
+//#3
 const binaryArrayToNumber = arr => {
   return parseInt(arr.join(''), 2)
 };
 
 binaryArrayToNumber([0,0,1,1])
+//#4
+function wordsToSentence(words) {
+  return words.join(' ');
+}
+
+function toQueryString (obj) {
+  const params = [];
+
+ for (const key in obj) {
+   if (Object.prototype.hasOwnProperty.call(obj, key)) {
+     const value = obj[key];
+
+     if (Array.isArray(value)) {
+       value.forEach((item) => {
+         params.push(`${encodeURIComponent(key)}=${encodeURIComponent(item)}`);
+       });
+     } else {
+       params.push(`${encodeURIComponent(key)}=${encodeURIComponent(value)}`);
+     }
+   }
+ }
+
+ return params.join('&');
+
+}   
+
+toQueryString({ foo: 1, bar: 2 })//'foo=1&bar=2'
+toQueryString({ foo: [ 1, 3 ], bar: [ 2, 4 ] }) //'foo=1&foo=3&bar=2&bar=4'
+toQueryString({ a: 'Z', b: 'Y', c: 'X', d: 'W', e: 'V', f: 'U', g: 'T' }) //'a=Z&b=Y&c=X&d=W&e=V&f=U&g=T'
